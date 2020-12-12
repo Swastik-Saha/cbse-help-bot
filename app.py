@@ -4,7 +4,7 @@ from respond import Respond
 app = Flask(__name__)
 responder = Respond()
 
-@app.route("/cbsebot")
+@app.route("/")
 def home():
     return render_template("index.html")
 
