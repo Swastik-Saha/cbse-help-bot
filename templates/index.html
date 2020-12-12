@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBSE Help Bot</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&family=Merriweather+Sans:wght@700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>CBSE Help Bot</h1>
+    <h1>By Swastik</h1>
+    <div>
+        <div id="chatbox">
+            <div class="botText">
+                <div class="botMessage"><span>
+                    Hii! <br>
+                    I am CBSE Help Bot. <br>
+                    Send the Number :- <br>
+                    1 -> For CBSE Results <br>
+                    2 -> For NCERT Books <br>
+                    3 -> For Latest Sample Papers <br>
+                    4 -> For Lab Manual <br>
+                    5 -> For Latest Syllabus <br>
+                    6 -> For Examination Related Materials <br>
+                    7 -> For Latest CBSE Circulars
+                    
+                </span></div>
+            </div>
+        </div>
+        <div id="userInput">
+            <input id="textInput" type="text" name="msg" placeholder="Message">
+            <button onclick="getBotResponse()" id="buttonInput">Send</button>
+        </div>
+
+        <script>
+            var menu = "mainmenu"
+            var payloadstr = ""
+            function getBotResponse() {
+                var rawText = $("#textInput").val();
+                rawText = rawText.trim();
+                if (rawText !== "") {
+                    var userHTML = '<div class="userText"><div class="userMessage"><span>' + rawText + '</span></div></div>';
+                    $("#textInput").val("");
+                    $("#chatbox").append(userHTML);
+                    window.scrollTo(0,document.body.scrollHeight);
+                    document.getElementById('userInput').scrollIntoView({ block: 'start', behavior: 'smooth' });
+                    $.get("/get", { msg: rawText, menu: menu, payloadstr:payloadstr }).done(function (data) {
+                        payloadstr = data["payloadstr"]
+                        menu = data["menu"]
+                        var reply = data["reply"]
+                        var botHtml = '<div class="botText"><div class="botMessage"><span>' + reply + '</span></div></div>';
+                        $("#chatbox").append(botHtml);
+                        window.scrollTo(0,document.body.scrollHeight);
+                    })
+                }
+            }
+            $("#textInput").keypress(function (e) {
+                if (e.which == 13) {
+                    getBotResponse();
+                }
+            })
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+body {
+    font-family: Garamond;
+    background-color: rgb(255, 242, 65);
+}
+
+h1 {
+    color: black;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    font-family: 'Merriweather Sans', sans-serif;
+}
+
+a{
+    color: #3aa0ff;
+}
+
+#chatbox {
+    /* background-color: rgba(77, 255, 0, 0.637); */
+    margin-left: auto;
+    margin-right: auto;
+    width: 97%;
+    height: 80%;
+    margin-top: 60px;
+    margin-bottom: 70px;
+
+}
+
+#userInput {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 97%;
+    margin-top: 60px;
+    position: fixed;
+    bottom: 5px;
+}
+
+#textInput {
+    display: inline;
+    width: 87%;
+    border: none;
+    border-bottom: 3px solid #009688;
+    border-radius: 5px;
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 22px;
+    padding: 3px;
+}
+
+#buttonInput {
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 5px;
+    font-family: 'Baloo Bhai 2', cursive;
+    background-color: rgb(57, 255, 83);
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.userText {
+    display: flex;   
+}
+
+.userMessage {
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 17px;
+    line-height: 30px;
+    background: #120257;
+    border-radius: 10px;
+    color: aliceblue;
+    margin: 3px;
+    margin-left: auto;
+    max-width: 90%;
+    padding: 7px;
+}
+
+
+.botText {
+    display: flex;   
+}
+
+.botMessage {
+    font-family: 'Baloo Bhai 2', cursive;
+    font-size: 17px;
+    line-height: 30px;
+    background: #0a3600;
+    border-radius: 10px;
+    color: aliceblue;
+    margin: 3px;
+    margin-right: auto;
+    max-width: 90%;
+    padding: 7px;
+}
+
+
