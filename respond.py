@@ -28,7 +28,7 @@ class Respond():
             for item in links:
                 link = item.get('href')
                 subject = item.get_text()
-                if str(link).startswith(msg):
+                if str(link).startswith(f"{msg}_"):
                     n += 1
                     subjectlink = self.book_url + link
                     subjects_and_links[str(n)] = [subject, subjectlink]
